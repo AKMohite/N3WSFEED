@@ -3,4 +3,21 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    
+<!--    dark colors-->
+    <color name="darkPrimaryColor">#141414</color>
+    <color name="darkPrimaryDarkColor">#141414</color>
+    <color name="darkBgColor">#141414</color>
+    <color name="darkTextColor">#fafafa</color>
+    <color name="darkIconTintColor">#a2a2a2</color>
+
+<!--    light theme colors-->
+    <color name="lightTextColor">#363636</color>
+    <color name="lightBgColor">#ffffff</color>
+
+<!--    amoled theme colors-->
+    <color name="amoledPrimaryColor">#000000</color>
+    <color name="amoledPrimaryDarkColor">#000000</color>
+    <color name="amoledBgColor">#000000</color>
+
 </resources>
