@@ -6,7 +6,11 @@ import com.ak.newsfeed.data.remote.Article
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
 import com.ak.newsfeed.databinding.ItemNewsTextBinding
 
-class TextViewHolder constructor(itemView: View): BaseViewHolder(itemView) {
+class TextViewHolder constructor(binding: ItemNewsTextBinding): BaseViewHolder(binding.root) {
+    private val bindingText: ItemNewsTextBinding
+    init {
+        bindingText = binding
+    }
     override fun bindData(item: Article) {
         TODO("Not yet implemented")
     }

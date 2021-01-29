@@ -6,7 +6,14 @@ import com.ak.newsfeed.data.remote.Article
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
 import com.ak.newsfeed.databinding.ItemNewsTextBinding
 
-class ImageViewHolder constructor(itemView: View): BaseViewHolder(itemView) {
+class ImageViewHolder constructor(binding: ItemNewsImageBinding): BaseViewHolder(binding.root) {
+
+    private val bindingImage: ItemNewsImageBinding
+
+    init {
+        bindingImage = binding
+    }
+
     override fun bindData(item: Article) {
         TODO("Not yet implemented")
     }
