@@ -7,4 +7,7 @@
     <string name="fav">Fav</string>
     <string name="search">Search</string>
     <string name="settings">Settings</string>
+    <string name="news_user_image">news user image</string>
+    <string name="news_image">news Image</string>
+    <string name="news_thumbnail">news thumbnail</string>
 </resources>
