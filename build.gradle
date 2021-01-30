@@ -12,6 +12,7 @@ buildscript {
         roomVersion = '2.2.6'
         hiltVersion = '2.28-alpha'
         hiltViewmodels = '1.0.0-alpha02'
+        dataStoreVersion = '1.0.0-alpha02'
     }
     repositories {
         google()
