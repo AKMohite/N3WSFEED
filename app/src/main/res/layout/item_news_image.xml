@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="#FFC107"
+        tools:background="#FFC107"
         android:alpha="0.9"
         android:contentDescription="@string/news_thumbnail" />
 

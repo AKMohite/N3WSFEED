@@ -15,28 +15,28 @@ data class NewsResponse(
 data class Article(
 //    extra key-values
     val id: Int,
-    val bgColor: String,
+    val bgColor: String?,
     val viewType: Int = 0, // 0 = simple text news, 1 = image news, 2 video news
-    val videoUrl: String,
+    val videoUrl: String? = "",
     val isFav: Boolean = false,
-    val authorImage: String,
+    val authorImage: String?,
 //    extra key-values
     @SerializedName("author")
-    val author: String,
+    val author: String? = "",
     @SerializedName("content")
-    val content: String,
+    val content: String? = "",
     @SerializedName("description")
-    val description: String,
+    val description: String? = "",
     @SerializedName("publishedAt")
-    val publishedAt: String,
+    val publishedAt: String? = "",
     @SerializedName("source")
-    val source: Source,
+    val source: Source? = null,
     @SerializedName("title")
-    val title: String,
+    val title: String? = "",
     @SerializedName("url")
-    val url: String,
+    val url: String? = "",
     @SerializedName("urlToImage")
-    val urlToImage: String
+    val urlToImage: String? = ""
 )
 
 data class Source(
