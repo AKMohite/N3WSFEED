@@ -19,6 +19,7 @@ data class Article(
     val viewType: Int = 0, // 0 = simple text news, 1 = image news, 2 video news
     val videoUrl: String,
     val isFav: Boolean = false,
+    val authorImage: String,
 //    extra key-values
     @SerializedName("author")
     val author: String,
