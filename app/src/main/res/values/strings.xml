@@ -10,4 +10,5 @@
     <string name="news_user_image">news user image</string>
     <string name="news_image">news Image</string>
     <string name="news_thumbnail">news thumbnail</string>
+    <string name="news_bookmark">News bookmark</string>
 </resources>
