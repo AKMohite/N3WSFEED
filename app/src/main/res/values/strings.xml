@@ -11,4 +11,5 @@
     <string name="news_image">news Image</string>
     <string name="news_thumbnail">news thumbnail</string>
     <string name="news_bookmark">News bookmark</string>
+    <string name="search_news">Search news</string>
 </resources>
