@@ -12,4 +12,9 @@
     <string name="news_thumbnail">news thumbnail</string>
     <string name="news_bookmark">News bookmark</string>
     <string name="search_news">Search news</string>
+    <string name="choose_your_preferred_theme">Choose your Preferred Theme</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="dark_theme_amoled">Dark Theme Amoled</string>
+    <string name="settings_intro"><![CDATA[<string name=\"settings_intro\">Settings Page: Choose your preferred theme: light - dark or dark amoled and costumize font type and size, any applied changes in this settings page will require you to restart the application</string>]]></string>
 </resources>
