@@ -1,6 +1,5 @@
 package com.ak.newsfeed.ui.home
 
-import android.view.View
 import com.ak.newsfeed.R
 import com.ak.newsfeed.base.BaseViewHolder
 import com.ak.newsfeed.data.remote.Article
