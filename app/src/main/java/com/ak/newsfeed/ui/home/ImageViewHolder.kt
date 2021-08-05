@@ -1,12 +1,12 @@
 package com.ak.newsfeed.ui.home
 
+import coil.load
 import com.ak.newsfeed.R
 import com.ak.newsfeed.base.BaseViewHolder
 import com.ak.newsfeed.data.remote.Article
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
 import com.ak.newsfeed.databinding.ItemNewsTextBinding
 import com.ak.newsfeed.utils.BgColorType
-import com.bumptech.glide.Glide
 
 class ImageViewHolder constructor(binding: ItemNewsImageBinding): BaseViewHolder(binding.root) {
 
@@ -20,8 +20,8 @@ class ImageViewHolder constructor(binding: ItemNewsImageBinding): BaseViewHolder
         with(bindingImage){
             itemNewsImgTitle.text = item.title
             itemNewsImgUsername.text = item.author
-            Glide.with(itemNewsImgNewsimg.context).load(item.urlToImage).into(itemNewsImgNewsimg)
-            Glide.with(itemNewsImgUserimg.context).load(item.authorImage).into(itemNewsImgUserimg)
+            itemNewsImgNewsimg.load(item.urlToImage)
+            itemNewsImgUserimg.load(item.authorImage)
             when(item.bgColor){
                 BgColorType.RED.color -> imageView2.setBackgroundColor(imageView2.context.resources.getColor(R.color.red))
 
