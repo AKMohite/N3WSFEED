@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/N3WSFEED.News_Feed.iml" filepath="$PROJECT_DIR$/.idea/modules/N3WSFEED.News_Feed.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/News_Feed.iml" filepath="$PROJECT_DIR$/.idea/modules/News_Feed.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/News_Feed.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/News_Feed.app.iml" />
     </modules>
