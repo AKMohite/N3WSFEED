@@ -1,6 +1,5 @@
 package com.ak.newsfeed.utils
 
-import android.util.Log
 import com.ak.newsfeed.data.remote.Article
 import kotlin.random.Random
 
@@ -26,12 +25,12 @@ import kotlin.random.Random
  */
 class FakeDataSource {
 
-    fun FakeDataSource() {
+    /*init {
         initListNewsImages()
         initListUserImages()
         initListNewsTitle()
         initListUsername()
-    }
+    }*/
 
     /** News item data format
      *
@@ -578,7 +577,6 @@ class FakeDataSource {
         }
         if (position != 0) {
             val ir = position / 2 + 1
-            Log.e("TAG", "generateViewType: $ir")
             return if (ir % 2 == 0) {
                 if (position % 2 == 0) {
                     0
