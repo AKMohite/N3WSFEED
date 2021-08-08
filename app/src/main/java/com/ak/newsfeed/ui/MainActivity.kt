@@ -10,10 +10,12 @@ import com.ak.newsfeed.databinding.ActivityMainBinding
 import com.ak.newsfeed.utils.AppSettings
 import com.ak.newsfeed.utils.FilterPreferences
 import com.ak.newsfeed.utils.ThemeType
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

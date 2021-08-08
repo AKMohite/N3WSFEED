@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.ak.newsfeed.base.BaseViewHolder
-import com.ak.newsfeed.data.remote.Article
+import com.ak.newsfeed.data.remote.dto.Article
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
 import com.ak.newsfeed.databinding.ItemNewsTextBinding
 import com.ak.newsfeed.utils.NewsType

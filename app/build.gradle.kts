@@ -69,7 +69,10 @@ dependencies {
 
     // retrofit and Gson
     implementation(Library.retrofit)
-    implementation(Library.gsonConverter)
+    implementation(Library.loggingInterceptor)
+    implementation(Library.moshi)
+    implementation(Library.moshiConverter)
+    kapt(Library.moshiCodegen)
 
     // coil
     implementation(Library.coil)
