@@ -2,7 +2,7 @@ package com.ak.newsfeed.ui.home
 
 import coil.load
 import com.ak.newsfeed.base.BaseViewHolder
-import com.ak.newsfeed.data.remote.Article
+import com.ak.newsfeed.data.remote.dto.Article
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
 import com.ak.newsfeed.databinding.ItemNewsTextBinding
 

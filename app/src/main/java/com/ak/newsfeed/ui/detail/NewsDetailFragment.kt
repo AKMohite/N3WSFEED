@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import coil.load
 import com.ak.newsfeed.R
-import com.ak.newsfeed.data.remote.Article
+import com.ak.newsfeed.data.remote.dto.Article
 import com.ak.newsfeed.databinding.FragmentNewDetailBinding
 
 /**

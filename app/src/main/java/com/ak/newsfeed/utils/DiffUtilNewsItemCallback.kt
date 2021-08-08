@@ -1,7 +1,7 @@
 package com.ak.newsfeed.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.ak.newsfeed.data.remote.Article
+import com.ak.newsfeed.data.remote.dto.Article
 
 class DiffUtilNewsItemCallback: DiffUtil.ItemCallback<Article>() {
     override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean = oldItem.id == newItem.id
