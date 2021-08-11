@@ -1,10 +1,10 @@
 package com.ak.newsfeed.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.ak.newsfeed.data.remote.dto.Article
+import com.ak.newsfeed.domain.model.NewsArticle
 
-class DiffUtilNewsItemCallback: DiffUtil.ItemCallback<Article>() {
-    override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean = oldItem.id == newItem.id
+class DiffUtilNewsItemCallback: DiffUtil.ItemCallback<NewsArticle>() {
+    override fun areItemsTheSame(oldItem: NewsArticle, newItem: NewsArticle): Boolean = oldItem.url == newItem.url
 
-    override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: NewsArticle, newItem: NewsArticle): Boolean = oldItem == newItem
 }
