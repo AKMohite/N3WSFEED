@@ -4,45 +4,25 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.ak.newsfeed.base.BaseViewHolder
-import com.ak.newsfeed.data.remote.dto.Article
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
-import com.ak.newsfeed.databinding.ItemNewsTextBinding
-import com.ak.newsfeed.utils.NewsType
+import com.ak.newsfeed.domain.model.NewsArticle
 
-class NewsListAdapter(private val diffCallback: DiffUtil.ItemCallback<Article>): ListAdapter<Article, BaseViewHolder>(diffCallback) {
+class NewsListAdapter(diffCallback: DiffUtil.ItemCallback<NewsArticle>): ListAdapter<NewsArticle, ImageViewHolder>(diffCallback) {
 
 //    TODO change click events
     private var listener: OnNewsItemClickEvent? = null
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-        return when(viewType){
-            NewsType.TEXT_NEWS.viewType -> {
-                val textBinding = ItemNewsTextBinding.inflate(layoutInflater)
-                TextViewHolder(textBinding)
-            }
-
-            NewsType.IMAGE_NEWS.viewType -> {
-                val imageBinding = ItemNewsImageBinding.inflate(layoutInflater)
-                ImageViewHolder(imageBinding)
-            }
-            else -> {
-                val defaultTextBinding = ItemNewsTextBinding.inflate(layoutInflater)
-                TextViewHolder(defaultTextBinding)
-            }
-        }
+        val imageBinding = ItemNewsImageBinding.inflate(layoutInflater)
+        return ImageViewHolder(imageBinding)
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         holder.bindData(getItem(position))
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return getItem(position).viewType
     }
 
     fun setOnItemClickListener(listener: OnNewsItemClickEvent){

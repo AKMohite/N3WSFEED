@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,8 +9,8 @@
     <ImageView
         android:scaleType="centerCrop"
         android:id="@+id/item_news_img_newsimg"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:background="#FFC107"
-        android:alpha="0.9"
+        android:alpha="0.4"
         android:contentDescription="@string/news_thumbnail" />
 
     <ImageView
@@ -44,11 +45,9 @@
         android:id="@+id/item_news_img_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        tools:text="TextView"
+        android:layout_margin="16dp"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        android:maxLines="2"
         app:layout_constraintBottom_toTopOf="@+id/item_news_img_userimg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,11 +56,13 @@
     <TextView
         android:textColor="@color/darkTextColor"
         android:id="@+id/item_news_img_username"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         tools:text="TextView"
+        android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="@+id/item_news_img_userimg"
         app:layout_constraintStart_toEndOf="@+id/item_news_img_userimg"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/item_news_img_userimg" />
 </androidx.constraintlayout.widget.ConstraintLayout>
