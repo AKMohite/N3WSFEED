@@ -22,6 +22,10 @@ class HomeViewModel @Inject constructor(
     val liveData: LiveData<NewsResource<List<NewsArticle>>>
         get() = _liveData
 
+    init {
+        getTopHeadlines()
+    }
+
     fun getTopHeadlines() {
         repo.getTopHeadlines("us", 100)
                 .onEach { dataWrapper ->
