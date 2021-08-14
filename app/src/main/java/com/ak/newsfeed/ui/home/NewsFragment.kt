@@ -26,7 +26,6 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNewsBinding.bind(view)
-        viewModel.getTopHeadlines()
 
         binding.apply {
             newsItemList.layoutManager = LinearLayoutManager(requireContext())
