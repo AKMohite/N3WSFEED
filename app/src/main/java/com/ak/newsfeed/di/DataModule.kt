@@ -16,7 +16,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Named
 
 private const val BASE_URL = "https://newsapi.org/v2/"
 private const val API_KEY = "" //todo add apikey
@@ -26,7 +25,7 @@ private const val API_KEY = "" //todo add apikey
 object DataModule {
 
     @Provides
-    @Named("LoggingInterceptor")
+    @LoggingInterceptor
     fun provideHttpLoggingInterceptor(): Interceptor = HttpLoggingInterceptor().apply {
         level = if (BuildConfig.DEBUG)
             HttpLoggingInterceptor.Level.BODY
@@ -35,13 +34,13 @@ object DataModule {
     }
 
     @Provides
-    @Named("MockInterceptor")
+    @MockingInterceptor
     fun provideMockInterceptor(): Interceptor = MockInterceptor()
 
     @Provides
     fun provideCallFactory(
-        @Named("LoggingInterceptor") loggingInterceptor: Interceptor,
-        @Named("MockInterceptor") mockInterceptor: Interceptor
+        @LoggingInterceptor loggingInterceptor: Interceptor,
+        @MockingInterceptor mockInterceptor: Interceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
