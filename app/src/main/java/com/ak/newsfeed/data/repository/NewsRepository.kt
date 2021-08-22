@@ -2,6 +2,8 @@ package com.ak.newsfeed.data.repository
 
 import android.util.Log
 import com.ak.newsfeed.data.NewsResource
+import com.ak.newsfeed.data.local.entity.NewsArticleEntity
+import com.ak.newsfeed.data.local.source.ILocalDataSource
 import com.ak.newsfeed.data.remote.source.IRemoteDataSource
 import com.ak.newsfeed.domain.model.NewsArticle
 import kotlinx.coroutines.flow.Flow
@@ -9,7 +11,8 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(
-    private val remoteDataSource: IRemoteDataSource
+    private val remoteDataSource: IRemoteDataSource,
+    private val localDataSource: ILocalDataSource
 ) : INewsRepository {
     override fun getTopHeadlines(country: String, pageSize: Int): Flow<NewsResource<List<NewsArticle>>> {
         return flow {
@@ -31,6 +34,11 @@ class NewsRepository @Inject constructor(
                                 )
                             }
                 }
+                localDataSource.addArticles(newList.map {
+                    NewsArticleEntity(
+                        it.url
+                    )
+                })
                 emit(NewsResource.Success(newList)) //todo map articles
             } catch (e: Exception) {
                 emit(NewsResource.Error(e))

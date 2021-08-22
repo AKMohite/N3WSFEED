@@ -14,6 +14,7 @@ object Library {
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Version.navigation}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
     const val navigationDynamic = "androidx.navigation:navigation-dynamic-features-fragment:${Version.navigation}"
+    const val roomKtx = "androidx.room:room-ktx:${Version.room}"
     const val roomRuntime = "androidx.room:room-runtime:${Version.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
     const val lifecycleLivedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.lifecycle}"

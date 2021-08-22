@@ -1,11 +1,15 @@
 package com.ak.newsfeed.di
 
+import android.content.Context
+import androidx.room.Room
 import com.ak.newsfeed.BuildConfig
+import com.ak.newsfeed.data.local.NewsDatabase
 import com.ak.newsfeed.data.remote.NewsAPIService
 import com.ak.newsfeed.data.remote.source.MockInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -69,5 +73,13 @@ object DataModule {
     @Provides
     fun provideNewsAPI(retrofit: Retrofit): NewsAPIService {
         return retrofit.create(NewsAPIService::class.java)
+    }
+
+    @Provides
+    fun provideNewsDB(
+        @ApplicationContext context: Context
+    ): NewsDatabase {
+        return Room.databaseBuilder(context, NewsDatabase::class.java, "news.db")
+            .build()
     }
 }

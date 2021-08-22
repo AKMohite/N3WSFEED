@@ -61,6 +61,7 @@ dependencies {
     implementation(Library.navigationDynamic)
 
     // Room
+    implementation(Library.roomKtx)
     implementation(Library.roomRuntime)
     kapt(Library.roomCompiler)
 
