@@ -34,6 +34,7 @@ class NewsRepository @Inject constructor(
                                 )
                             }
                 }
+//                todo add data to db and get data from DB
                 localDataSource.addArticles(newList.map {
                     NewsArticleEntity(
                         it.url
