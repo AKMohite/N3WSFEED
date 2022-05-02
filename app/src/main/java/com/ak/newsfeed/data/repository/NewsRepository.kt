@@ -21,26 +21,33 @@ class NewsRepository @Inject constructor(
             try {
                 val remoteData = remoteDataSource.getTopHeadlines(country, pageSize)
                 if (!remoteData.articles.isNullOrEmpty()) {
-                    newList = remoteData.articles.filter { article ->
+                    val localEntity = remoteData.articles.filter { article ->
 //                        todo need to handle UI
                         !article.urlToImage.isNullOrBlank()
                     }.map { article ->
-                                NewsArticle(
-                                        title = article.title,
-                                        url = article.url,
-                                        author = article.author ?: "",
-                                        newsImage = article.urlToImage ?: "",
-                                        content = article.content
-                                )
-                            }
+                        NewsArticleEntity(
+                            url = article.url,
+                            author = article.author ?: "NA",
+                            content = article.content,
+                            title = article.title,
+                            description = article.description ?: "NA",
+                            publishedAt = article.publishedAt ?: "NA",
+                            imgUrl = article.urlToImage!!
+                        )
+                    }
+                    localDataSource.addArticles(localEntity)
+                    newList = localDataSource.getArticles()
+                        .map { article ->
+                            NewsArticle(
+                                title = article.title,
+                                url = article.url,
+                                author = article.author,
+                                newsImage = article.imgUrl,
+                                content = article.content
+                            )
+                        }
                 }
-//                todo add data to db and get data from DB
-                localDataSource.addArticles(newList.map {
-                    NewsArticleEntity(
-                        it.url
-                    )
-                })
-                emit(NewsResource.Success(newList)) //todo map articles
+                emit(NewsResource.Success(newList))
             } catch (e: Exception) {
                 emit(NewsResource.Error(e))
                 Log.d("NewsRepository", "getTopHeadlines: $e")
