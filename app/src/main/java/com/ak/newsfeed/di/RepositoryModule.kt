@@ -14,5 +14,4 @@ interface RepositoryModule {
 
     @Binds
     fun bindNewsRepository(repo: NewsRepository): INewsRepository
-
 }

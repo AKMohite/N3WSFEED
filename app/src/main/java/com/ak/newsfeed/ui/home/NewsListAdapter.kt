@@ -7,12 +7,10 @@ import androidx.recyclerview.widget.ListAdapter
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
 import com.ak.newsfeed.domain.model.NewsArticle
 
-class NewsListAdapter(diffCallback: DiffUtil.ItemCallback<NewsArticle>): ListAdapter<NewsArticle, ImageViewHolder>(diffCallback) {
+class NewsListAdapter(diffCallback: DiffUtil.ItemCallback<NewsArticle>) : ListAdapter<NewsArticle, ImageViewHolder>(diffCallback) {
 
 //    TODO change click events
     private var listener: OnNewsItemClickEvent? = null
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
 
@@ -25,7 +23,7 @@ class NewsListAdapter(diffCallback: DiffUtil.ItemCallback<NewsArticle>): ListAda
         holder.bindData(getItem(position))
     }
 
-    fun setOnItemClickListener(listener: OnNewsItemClickEvent){
+    fun setOnItemClickListener(listener: OnNewsItemClickEvent) {
         this.listener = listener
     }
 

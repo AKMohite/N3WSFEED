@@ -32,7 +32,7 @@ class AppSettings(private val context: Context) {
             FilterPreferences(appUserTheme)
         }
 
-    suspend fun updateUserTheme(themeType: ThemeType){
+    suspend fun updateUserTheme(themeType: ThemeType) {
         dataStore.edit { preferences ->
             preferences[PreferencesKeys.APP_THEME] = themeType.name
         }

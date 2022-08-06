@@ -8,6 +8,6 @@ import com.ak.newsfeed.data.local.entity.NewsArticleEntity
     entities = [NewsArticleEntity::class],
     version = 1
 )
-abstract class NewsDatabase: RoomDatabase() {
+abstract class NewsDatabase : RoomDatabase() {
     abstract fun newsDAO(): NewsDAO
 }
