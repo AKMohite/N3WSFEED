@@ -13,6 +13,7 @@ buildscript {
         classpath(Library.classPathHilt)
         classpath(Library.classPathKtlint)
         classpath(Library.classPathDetekt)
+        classpath(Library.classPathVersionUpdates)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
@@ -60,6 +61,29 @@ subprojects {
         }
     }
 //    endregion detekt
+
+//    region version updates
+    apply(plugin = "com.github.ben-manes.versions")
+
+    fun isNonStable(version: String): Boolean {
+        val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
+        val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+        val isStable = stableKeyword || regex.matches(version)
+        return isStable.not()
+    }
+
+    tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask> {
+        rejectVersionIf {
+            isNonStable(candidate.version) && !isNonStable(currentVersion)
+        }
+        gradleReleaseChannel = "current"
+        checkForGradleUpdate = true
+        outputFormatter = "html"
+        outputDir = "build/dependencyUpdates"
+        reportfileName = "report"
+    }
+//    endregion version updates
+
 }
 
 tasks.register("clean", Delete::class) {
