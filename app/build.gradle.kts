@@ -6,16 +6,16 @@ plugins{
 }
 
 android {
-    compileSdkVersion(Configs.compileSDKVersion)
+    compileSdk = NewsAppConfigs.compileSDKVersion
 
     defaultConfig {
-        applicationId(Configs.applicationID)
-        minSdkVersion(Configs.minSDKVersion)
-        targetSdkVersion(Configs.targetSDKVersion)
-        versionCode = Configs.versionCode
-        versionName = Configs.versionName
+        applicationId = NewsAppConfigs.applicationID
+        minSdk = NewsAppConfigs.minSDKVersion
+        targetSdk = NewsAppConfigs.targetSDKVersion
+        versionCode = NewsAppConfigs.versionCode
+        versionName = NewsAppConfigs.versionName
 
-        testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
