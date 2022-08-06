@@ -9,7 +9,7 @@ object Library {
     const val coreKtx = "androidx.core:core-ktx:${Version.coreKtx}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Version.constraintLayout}"
     const val hiltAndroid = "com.google.dagger:hilt-android:${Version.hilt}"
-    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-compiler:${Version.hilt}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Version.navigation}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
