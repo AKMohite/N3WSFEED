@@ -28,9 +28,9 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
         binding.apply {
             newsItemList.layoutManager = LinearLayoutManager(requireContext())
-            newsListSwipe.setOnRefreshListener {
+            /*newsListSwipe.setOnRefreshListener {
                 viewModel.getTopHeadlines()
-            }
+            }*/
         }
 
         observeLiveData()
