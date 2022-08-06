@@ -11,14 +11,14 @@ class MockInterceptor: Interceptor {
 
     private val responseCode = 200
     private val topHeadlineResponse by lazy {
-        getResourceAsText("top-headline-success.json")
+        getResourceAsText("top-headlines/1.json")
     }
 
     override fun intercept(chain: Interceptor.Chain): Response {
         if (BuildConfig.DEBUG) {
             val uri = chain.request().url.toUri().toString()
             val responseString = when {
-                uri.contains("top-headline") -> topHeadlineResponse
+                uri.contains("top-headlines") -> topHeadlineResponse
                 else -> ""
             }
 
