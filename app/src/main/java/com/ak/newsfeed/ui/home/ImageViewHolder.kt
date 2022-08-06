@@ -23,6 +23,8 @@ class ImageViewHolder constructor(binding: ItemNewsImageBinding): RecyclerView.V
             itemNewsImgNewsimg.load(item.newsImage) {
                 error(R.mipmap.ic_launcher)
                 placeholder(R.mipmap.ic_launcher)
+                crossfade(750)
+                scale(Scale.FILL)
             }
             itemNewsImgUserimg.load(item.url) {
                 error(R.mipmap.ic_launcher)
