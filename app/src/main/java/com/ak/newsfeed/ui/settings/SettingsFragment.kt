@@ -1,12 +1,9 @@
 package com.ak.newsfeed.ui.settings
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-
 import com.ak.newsfeed.R
 import com.ak.newsfeed.databinding.FragmentSettingsBinding
 import com.ak.newsfeed.utils.AppSettings
@@ -29,7 +26,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
 
-            when(appSettings?.preferencesFlow?.first()?.appTheme){
+            when (appSettings?.preferencesFlow?.first()?.appTheme) {
                 ThemeType.LIGHT -> binding.rbLight.isChecked = true
 
                 ThemeType.DARK -> binding.rbDark.isChecked = true
@@ -42,7 +39,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         binding.rgTheme.setOnCheckedChangeListener { _, checkedId ->
             viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-                when(checkedId){
+                when (checkedId) {
                     R.id.rb_light -> appSettings?.updateUserTheme(ThemeType.LIGHT)
 
                     R.id.rb_dark -> appSettings?.updateUserTheme(ThemeType.DARK)
@@ -56,5 +53,4 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             }
         }
     }
-
 }

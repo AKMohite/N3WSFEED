@@ -10,21 +10,20 @@ class NewFeedApplication : Application() {
     override fun onCreate() {
         if (BuildConfig.DEBUG) {
             StrictMode.setThreadPolicy(
-                    StrictMode.ThreadPolicy.Builder()
-                            .detectDiskReads()
-                            .detectDiskWrites()
-                            .detectNetwork()
-                            .penaltyLog()
-                            .build()
+                StrictMode.ThreadPolicy.Builder()
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()
+                    .penaltyLog()
+                    .build()
             )
             StrictMode.setVmPolicy(
-                    StrictMode.VmPolicy.Builder()
-                            .detectAll()
-                            .penaltyLog()
-                            .build()
+                StrictMode.VmPolicy.Builder()
+                    .detectAll()
+                    .penaltyLog()
+                    .build()
             )
         }
         super.onCreate()
     }
-
 }

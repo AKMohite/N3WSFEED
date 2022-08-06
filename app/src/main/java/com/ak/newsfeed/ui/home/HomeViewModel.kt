@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val repo: INewsRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val _liveData = MutableLiveData<NewsResource<List<NewsArticle>>>()
 
@@ -28,8 +28,8 @@ class HomeViewModel @Inject constructor(
 
     fun getTopHeadlines() {
         repo.getTopHeadlines("us", 100)
-                .onEach { dataWrapper ->
-                    _liveData.value = dataWrapper
-                }.launchIn(viewModelScope)
+            .onEach { dataWrapper ->
+                _liveData.value = dataWrapper
+            }.launchIn(viewModelScope)
     }
 }

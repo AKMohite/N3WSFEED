@@ -1,17 +1,13 @@
 package com.ak.newsfeed.ui.favorite
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-
 import com.ak.newsfeed.R
 import com.ak.newsfeed.databinding.FragmentNewsFavBinding
 import com.ak.newsfeed.ui.home.NewsListAdapter
 import com.ak.newsfeed.utils.DiffUtilNewsItemCallback
-import com.ak.newsfeed.utils.FakeDataSource
 
 /**
  * A simple [Fragment] subclass.
@@ -33,5 +29,4 @@ class NewsFavFragment : Fragment(R.layout.fragment_news_fav) {
             adapter?.submitList(emptyList())
         }
     }
-
 }

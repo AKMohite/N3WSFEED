@@ -23,7 +23,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        
     }
 }
 
@@ -44,7 +43,6 @@ subprojects {
         }
     }
 //    endregion ktlint
-
 }
 
 tasks.register("clean", Delete::class) {

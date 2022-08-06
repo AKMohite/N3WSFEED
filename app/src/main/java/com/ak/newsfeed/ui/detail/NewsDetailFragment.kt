@@ -27,13 +27,11 @@ class NewsDetailFragment : Fragment(R.layout.fragment_new_detail) {
             detailsTitle.text = article?.title
             detailsUsernameDate.text = article?.author
             detailsContent.text = article?.content
-            if (article?.isFav == true){
+            if (article?.isFav == true) {
                 detailsImgFav.setColorFilter(ContextCompat.getColor(requireContext(), R.color.red))
-            } else{
+            } else {
                 detailsImgFav.setColorFilter(ContextCompat.getColor(requireContext(), R.color.darkIconTintColor))
             }
-
         }
     }
-
 }

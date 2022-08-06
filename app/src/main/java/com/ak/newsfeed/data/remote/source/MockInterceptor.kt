@@ -7,7 +7,7 @@ import okhttp3.Protocol
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
 
-class MockInterceptor: Interceptor {
+class MockInterceptor : Interceptor {
 
     private val responseCode = 200
     private val topHeadlineResponse by lazy {
@@ -34,14 +34,15 @@ class MockInterceptor: Interceptor {
                 .addHeader("content-type", "application/json")
                 .build()
         } else {
-            //just to be on safe side.
-            throw IllegalAccessError("MockInterceptor is only meant for Testing Purposes and " +
-                    "bound to be used only with DEBUG mode")
+            // just to be on safe side.
+            throw IllegalAccessError(
+                "MockInterceptor is only meant for Testing Purposes and " +
+                    "bound to be used only with DEBUG mode"
+            )
         }
     }
 
     private fun getResourceAsText(path: String): String {
         return object {}.javaClass.classLoader?.getResource(path)?.readText() ?: ""
     }
-
 }
