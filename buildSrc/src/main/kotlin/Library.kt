@@ -4,6 +4,7 @@ object Library {
     const val classPathGradle = "com.android.tools.build:gradle:${Version.gradle}"
     const val classPathKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}"
     const val classPathHilt = "com.google.dagger:hilt-android-gradle-plugin:${Version.hilt}"
+    const val classPathKtlint = "org.jlleitschuh.gradle:ktlint-gradle:${Version.ktlint}"
     const val kotlinSDK = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.kotlin}"
     const val appCompat = "androidx.appcompat:appcompat:${Version.appCompat}"
     const val coreKtx = "androidx.core:core-ktx:${Version.coreKtx}"

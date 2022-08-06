@@ -16,4 +16,5 @@ object Version {
     const val room = "2.3.0"
     const val hilt = "2.38.1"
     const val dataStore = "1.0.0-alpha02"
+    const val ktlint = "10.3.0"
 }
