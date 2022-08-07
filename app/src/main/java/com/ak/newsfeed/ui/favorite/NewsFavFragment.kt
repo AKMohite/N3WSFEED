@@ -30,8 +30,7 @@ class NewsFavFragment : Fragment(R.layout.fragment_news_fav) {
             rvFav.layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = NewsListAdapter(DiffUtilNewsItemCallback())
             rvFav.adapter = adapter
-            val fakeDataSource = FakeDataSource()
-            adapter?.submitList(fakeDataSource.getFakeStaticListNews())
+            adapter?.submitList(emptyList())
         }
     }
 
