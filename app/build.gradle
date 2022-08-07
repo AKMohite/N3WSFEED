@@ -1,0 +1,90 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "dagger.hilt.android.plugin"
+}
+
+android {
+    compileSdk Integer.parseInt(libs.versions.compileSdk.get())
+
+    defaultConfig {
+        applicationId "com.ak.newsfeed"
+        minSdk Integer.parseInt(libs.versions.minSdk.get())
+        targetSdk Integer.parseInt(libs.versions.targetSdk.get())
+        versionCode Integer.parseInt(libs.versions.versionCode.get())
+        versionName libs.versions.versionName.get()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+//            debuggable true // TODO : comment to build unsigned APK
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' // TODO : Add DTOs
+        }
+    }
+
+    buildFeatures.viewBinding = true
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas".toString())
+        }
+    }
+}
+
+dependencies {
+    implementation libs.kotlinSDK
+    implementation libs.appCompat
+    implementation libs.coreKtx
+    implementation libs.constraintLayout
+
+//    Hilt
+    implementation libs.hiltAndroid
+    kapt libs.hiltCompiler
+
+    // ViewModel dependencies
+    implementation libs.lifecycleViewModel
+
+    // jetpack navigation component
+    implementation libs.navigationFragment
+    implementation libs.navigationUI
+    implementation libs.navigationDynamic
+
+    // Room
+    implementation libs.roomKtx
+    implementation libs.roomRuntime
+    kapt libs.roomCompiler
+
+    // livedate
+    implementation libs.lifecycleLivedata
+
+    // retrofit and Gson
+    implementation libs.retrofit
+    implementation libs.loggingInterceptor
+    implementation libs.moshi
+    implementation libs.moshiConverter
+    kapt libs.moshiCodegen
+
+    // coil
+    implementation libs.coil
+
+//    datastore
+    implementation libs.dataStore
+
+    testImplementation libs.testJunit
+    androidTestImplementation libs.testExtJunit
+    androidTestImplementation libs.testEspressoCore
+}
