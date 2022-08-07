@@ -26,7 +26,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
 
-            when (appSettings?.preferencesFlow?.first()?.appTheme) {
+//            when (appSettings?.preferencesFlow?.first()?.appTheme) {
                 /*ThemeType.LIGHT -> binding.rbLight.isChecked = true
 
                 ThemeType.DARK -> binding.rbDark.isChecked = true
@@ -34,7 +34,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 ThemeType.AMOLED -> binding.rbAmoled.isChecked = true
 
                 else -> binding.rbLight.isChecked = true*/
-            }
+//            }
         }
 
         binding.rgTheme.setOnCheckedChangeListener { _, checkedId ->

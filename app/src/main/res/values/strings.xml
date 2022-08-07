@@ -18,4 +18,5 @@
     <string name="dark_theme_amoled">Dark Theme Amoled</string>
     <string name="settings_intro"><![CDATA[<string name=\"settings_intro\">Settings Page: Choose your preferred theme: light - dark or dark amoled and costumize font type and size, any applied changes in this settings page will require you to restart the application</string>]]></string>
     <string name="news_description">News Description</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

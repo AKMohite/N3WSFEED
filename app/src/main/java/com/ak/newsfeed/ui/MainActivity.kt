@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyAppTheme(preferencesFlow: Flow<FilterPreferences>) {
         lifecycleScope.launch {
-            when (preferencesFlow.first().appTheme) {
+            /*when (preferencesFlow.first().appTheme) {
                 ThemeType.LIGHT -> setTheme(R.style.AppTheme)
 
                 ThemeType.DARK -> setTheme(R.style.DarkTheme)
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 ThemeType.AMOLED -> setTheme(R.style.DarkTheme)
 
                 else -> setTheme(R.style.AppTheme)
-            }
+            }*/
         }
     }
 
