@@ -29,5 +29,4 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             adapter?.submitList(emptyList())
         }
     }
-
 }
