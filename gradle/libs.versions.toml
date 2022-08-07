@@ -35,7 +35,6 @@ ktlint-plugin = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref =
 detekt-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 version-updates-plugin = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "versionUpdates" }
 
-kotlinSDK = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk7", version.ref = "kotlin" }
 appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
 coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
