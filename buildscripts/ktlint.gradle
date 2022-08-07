@@ -1,0 +1,16 @@
+apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+
+ktlint {
+
+//    pinterest ktlint version
+    version = "0.42.1"
+
+    reporters {
+        reporter "plain"
+        reporter "checkstyle"
+        reporter "html"
+    }
+
+    outputColorName = "RED"
+}
