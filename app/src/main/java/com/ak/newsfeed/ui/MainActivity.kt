@@ -1,7 +1,7 @@
 package com.ak.newsfeed.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyAppTheme(preferencesFlow: Flow<FilterPreferences>) {
         lifecycleScope.launch {
-            when(preferencesFlow.first().appTheme){
+            when (preferencesFlow.first().appTheme) {
                 ThemeType.LIGHT -> setTheme(R.style.AppTheme)
 
                 ThemeType.DARK -> setTheme(R.style.DarkTheme)

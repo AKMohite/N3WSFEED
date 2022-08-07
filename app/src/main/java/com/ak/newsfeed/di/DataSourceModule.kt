@@ -18,5 +18,4 @@ interface DataSourceModule {
 
     @Binds
     fun bindLocalDataSource(remote: LocalDataSource): ILocalDataSource
-
 }

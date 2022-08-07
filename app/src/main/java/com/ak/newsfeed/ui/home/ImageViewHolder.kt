@@ -8,7 +8,7 @@ import com.ak.newsfeed.databinding.ItemNewsImageBinding
 import com.ak.newsfeed.domain.model.NewsArticle
 import com.ak.newsfeed.utils.BgColorType
 
-class ImageViewHolder constructor(binding: ItemNewsImageBinding): RecyclerView.ViewHolder(binding.root) {
+class ImageViewHolder constructor(binding: ItemNewsImageBinding) : RecyclerView.ViewHolder(binding.root) {
 
     private val bindingImage: ItemNewsImageBinding
 
@@ -17,7 +17,7 @@ class ImageViewHolder constructor(binding: ItemNewsImageBinding): RecyclerView.V
     }
 
     fun bindData(item: NewsArticle) {
-        with(bindingImage){
+        with(bindingImage) {
             itemNewsImgTitle.text = item.title
             itemNewsImgUsername.text = item.author
             itemNewsImgNewsimg.load(item.newsImage) {
@@ -30,7 +30,7 @@ class ImageViewHolder constructor(binding: ItemNewsImageBinding): RecyclerView.V
                 error(R.mipmap.ic_launcher)
                 placeholder(R.mipmap.ic_launcher)
             }
-            when(item.url){ // todo remove bg type
+            when (item.url) { // todo remove bg type
                 BgColorType.RED.color -> imageView2.setBackgroundColor(imageView2.context.resources.getColor(R.color.red))
 
                 BgColorType.PURPLE.color -> imageView2.setBackgroundColor(imageView2.context.resources.getColor(R.color.purple))

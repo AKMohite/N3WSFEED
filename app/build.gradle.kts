@@ -1,4 +1,4 @@
-plugins{
+plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
@@ -21,7 +21,7 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles (
+            proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
@@ -39,6 +39,11 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas".toString())
+        }
+    }
 }
 
 dependencies {
@@ -77,7 +82,6 @@ dependencies {
 
     // coil
     implementation(Library.coil)
-
 
 //    datastore
     implementation(Library.dataStore)

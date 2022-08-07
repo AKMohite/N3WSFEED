@@ -57,7 +57,7 @@ class FakeDataSource {
                 content = getRandomContent(),
                 bgColor = getRandomBgColor(),
                 publishedAt = getRandompublishedAt(),
-                viewType= generateViewType(index)
+                viewType = generateViewType(index)
             )
             data.add(item)
         }
@@ -79,7 +79,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[0],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 1
+                viewType = 1
             )
         )
         data.add(
@@ -92,7 +92,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[2],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 0
+                viewType = 0
             )
         )
         data.add(
@@ -105,7 +105,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[0],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 0
+                viewType = 0
             )
         )
         data.add(
@@ -118,7 +118,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[2],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 1
+                viewType = 1
             )
         )
         data.add(
@@ -131,7 +131,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[1],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 1
+                viewType = 1
             )
         )
         data.add(
@@ -144,7 +144,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[1],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 0
+                viewType = 0
             )
         )
         data.add(
@@ -157,7 +157,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[2],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 0
+                viewType = 0
             )
         )
         data.add(
@@ -170,7 +170,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[3],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 1
+                viewType = 1
             )
         )
         data.add(
@@ -183,7 +183,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[2],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 1
+                viewType = 1
             )
         )
         data.add(
@@ -196,7 +196,7 @@ class FakeDataSource {
                 content = LOREM_TEXT,
                 bgColor = lstColors[1],
                 publishedAt = "2021-01-30T13:26:00Z",
-                viewType= 0
+                viewType = 0
             )
         )
         return data
@@ -392,7 +392,6 @@ class FakeDataSource {
         return data
     }
 
-
     private fun initListNewsImages() {
         listNewsImage.add(IMG_NEWS_01)
         listNewsImage.add(IMG_NEWS_02)
@@ -465,9 +464,7 @@ class FakeDataSource {
     val IMG_USER_05 =
         "https://1.bp.blogspot.com/-crUZwpqquAo/XxtD7_lwqEI/AAAAAAAAAoY/TbRYnR82uk8LXrQpx-tsBA4-KyFISSFUgCK4BGAYYCw/s400/user.png"
 
-
     var listUserImage: MutableList<String> = ArrayList()
-
 
     // user titles for testing
     val TXT_TITLE_01 = "Stack Overflow - Where Developers Learn, Share, and Build"
@@ -476,9 +473,7 @@ class FakeDataSource {
     val TXT_TITLE_04 = "Naija-based designer making stuff with Studio"
     val TXT_TITLE_05 = "How To Write Better Resume"
 
-
     var listNewsTitles: MutableList<String> = ArrayList()
-
 
     // user names for testing
     val TXT_NAME_01 = "Jona Dinges"
@@ -488,7 +483,6 @@ class FakeDataSource {
 
     var listUserNames: MutableList<String> = ArrayList()
 
-
     // News content for testing
     val LOREM_TEXT =
         "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with: The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content."
@@ -496,7 +490,6 @@ class FakeDataSource {
     // news background colors
     val lstColors =
         arrayOf("RED", "YELLOW", "BLACK", "PURPLE")
-
 
     /**
      * this method generate a random news item
@@ -527,7 +520,7 @@ class FakeDataSource {
     private fun getRandomNewsImage(): String? {
         if (listNewsImage.isNullOrEmpty())
             return "https://2.bp.blogspot.com/-ddZ2Tt8EOeo/XxtDIkHWgDI/AAAAAAAAAn0/vG13Vw5zoXU5fy_sHQ_7lW6PQz1UEXocACK4BGAYYCw/s1600/news5.PNG"
-        val index = Random.nextInt(0, listNewsImage.size-1)
+        val index = Random.nextInt(0, listNewsImage.size - 1)
         return listNewsImage[index]
     }
 
@@ -535,7 +528,7 @@ class FakeDataSource {
     private fun getRandomUserImage(): String? {
         if (listUserImage.isNullOrEmpty())
             return "https://2.bp.blogspot.com/-6EcFUPmzExo/XxtD9BbEO4I/AAAAAAAAAo0/n-AxAZrAVLQBbzjcKhkIOHtSLixVUz0lgCK4BGAYYCw/s400/user3.png"
-        val index = Random.nextInt(0, listUserImage.size-1)
+        val index = Random.nextInt(0, listUserImage.size - 1)
         return listUserImage[index]
     }
 
@@ -548,21 +541,20 @@ class FakeDataSource {
     private fun getRandomUsername(): String? {
         if (listUserNames.isNullOrEmpty())
             return "Jona Dinges"
-        val index = Random.nextInt(0, listUserNames.size-1)
+        val index = Random.nextInt(0, listUserNames.size - 1)
         return listUserNames[index]
     }
 
     // generate a random news background color
     private fun getRandomBgColor(): String? {
-        val index = Random.nextInt(0, lstColors.size-1)
+        val index = Random.nextInt(0, lstColors.size - 1)
         return lstColors[index]
     }
 
     // generate random date
-    private fun getRandompublishedAt() :String? {
+    private fun getRandompublishedAt(): String? {
         return "2021-01-30T13:26:00Z"
     }
-
 
     // generate a viewtype based on the index and the list size
     // this specify the view grid system of the format of the news system list
@@ -589,5 +581,4 @@ class FakeDataSource {
         }
         return 0
     }
-
 }

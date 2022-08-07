@@ -1,2 +1,2 @@
-rootProject.name="News Feed"
+rootProject.name = "News Feed"
 include(":app")

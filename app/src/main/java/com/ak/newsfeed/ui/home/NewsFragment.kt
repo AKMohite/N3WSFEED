@@ -1,11 +1,10 @@
 package com.ak.newsfeed.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.ak.newsfeed.R
 import com.ak.newsfeed.data.NewsResource
 import com.ak.newsfeed.databinding.FragmentNewsBinding
@@ -29,16 +28,16 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
         binding.apply {
             newsItemList.layoutManager = LinearLayoutManager(requireContext())
-            newsListSwipe.setOnRefreshListener {
+            /*newsListSwipe.setOnRefreshListener {
                 viewModel.getTopHeadlines()
-            }
+            }*/
         }
 
         observeLiveData()
     }
 
     private fun observeLiveData() {
-        viewModel.liveData.observe(viewLifecycleOwner){ dataWrapper ->
+        viewModel.liveData.observe(viewLifecycleOwner) { dataWrapper ->
             when (dataWrapper) {
                 is NewsResource.Error -> {}
                 is NewsResource.Loading -> {}
@@ -52,5 +51,4 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
         binding.newsItemList.adapter = newsAdapter
         newsAdapter?.submitList(data)
     }
-
 }

@@ -1,6 +1,5 @@
 package com.ak.newsfeed.data.remote.dto
 
-
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
