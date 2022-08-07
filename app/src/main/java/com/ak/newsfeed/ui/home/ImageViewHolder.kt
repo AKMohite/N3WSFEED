@@ -1,14 +1,14 @@
 package com.ak.newsfeed.ui.home
 
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.size.Scale
 import com.ak.newsfeed.R
-import com.ak.newsfeed.base.BaseViewHolder
-import com.ak.newsfeed.data.remote.Article
 import com.ak.newsfeed.databinding.ItemNewsImageBinding
-import com.ak.newsfeed.databinding.ItemNewsTextBinding
+import com.ak.newsfeed.domain.model.NewsArticle
 import com.ak.newsfeed.utils.BgColorType
 
-class ImageViewHolder constructor(binding: ItemNewsImageBinding): BaseViewHolder(binding.root) {
+class ImageViewHolder constructor(binding: ItemNewsImageBinding): RecyclerView.ViewHolder(binding.root) {
 
     private val bindingImage: ItemNewsImageBinding
 
@@ -16,13 +16,21 @@ class ImageViewHolder constructor(binding: ItemNewsImageBinding): BaseViewHolder
         bindingImage = binding
     }
 
-    override fun bindData(item: Article) {
+    fun bindData(item: NewsArticle) {
         with(bindingImage){
             itemNewsImgTitle.text = item.title
             itemNewsImgUsername.text = item.author
-            itemNewsImgNewsimg.load(item.urlToImage)
-            itemNewsImgUserimg.load(item.authorImage)
-            when(item.bgColor){
+            itemNewsImgNewsimg.load(item.newsImage) {
+                error(R.mipmap.ic_launcher)
+                placeholder(R.mipmap.ic_launcher)
+                crossfade(750)
+                scale(Scale.FILL)
+            }
+            itemNewsImgUserimg.load(item.url) {
+                error(R.mipmap.ic_launcher)
+                placeholder(R.mipmap.ic_launcher)
+            }
+            when(item.url){ // todo remove bg type
                 BgColorType.RED.color -> imageView2.setBackgroundColor(imageView2.context.resources.getColor(R.color.red))
 
                 BgColorType.PURPLE.color -> imageView2.setBackgroundColor(imageView2.context.resources.getColor(R.color.purple))
@@ -36,13 +44,5 @@ class ImageViewHolder constructor(binding: ItemNewsImageBinding): BaseViewHolder
                 else -> imageView2.setBackgroundColor(imageView2.context.resources.getColor(R.color.red))
             }
         }
-    }
-
-    override fun getItemNewsTextBinding(): ItemNewsTextBinding {
-        TODO("Not yet implemented")
-    }
-
-    override fun getItemNewsImageBinding(): ItemNewsImageBinding {
-        TODO("Not yet implemented")
     }
 }

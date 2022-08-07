@@ -1,6 +1,6 @@
 package com.ak.newsfeed.utils
 
-import com.ak.newsfeed.data.remote.Article
+import com.ak.newsfeed.data.remote.dto.Article
 import kotlin.random.Random
 
 /**

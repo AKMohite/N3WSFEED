@@ -6,16 +6,16 @@ plugins{
 }
 
 android {
-    compileSdkVersion(Configs.compileSDKVersion)
+    compileSdk = NewsAppConfigs.compileSDKVersion
 
     defaultConfig {
-        applicationId(Configs.applicationID)
-        minSdkVersion(Configs.minSDKVersion)
-        targetSdkVersion(Configs.targetSDKVersion)
-        versionCode = Configs.versionCode
-        versionName = Configs.versionName
+        applicationId = NewsAppConfigs.applicationID
+        minSdk = NewsAppConfigs.minSDKVersion
+        targetSdk = NewsAppConfigs.targetSDKVersion
+        versionCode = NewsAppConfigs.versionCode
+        versionName = NewsAppConfigs.versionName
 
-        testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -61,6 +61,7 @@ dependencies {
     implementation(Library.navigationDynamic)
 
     // Room
+    implementation(Library.roomKtx)
     implementation(Library.roomRuntime)
     kapt(Library.roomCompiler)
 
@@ -69,7 +70,10 @@ dependencies {
 
     // retrofit and Gson
     implementation(Library.retrofit)
-    implementation(Library.gsonConverter)
+    implementation(Library.loggingInterceptor)
+    implementation(Library.moshi)
+    implementation(Library.moshiConverter)
+    kapt(Library.moshiCodegen)
 
     // coil
     implementation(Library.coil)
