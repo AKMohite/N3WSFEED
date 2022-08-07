@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath libs.gradle.plugin
+        classpath libs.kotlin.plugin
+        classpath libs.hilt.plugin
+        classpath libs.ktlint.plugin
+        classpath libs.detekt.plugin
+        classpath libs.version.updates.plugin
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle.kts files
+    }
+}
+
+apply plugin: "org.jlleitschuh.gradle.ktlint"
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// apply plugins to all sub-modules
+subprojects {
+
+    apply from: "../buildscripts/ktlint.gradle"
+    apply from: "../buildscripts/detekt.gradle"
+    apply from: "../buildscripts/versionsplugin.gradle"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
