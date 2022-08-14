@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ak.newsfeed.data.NewsResource
-import com.ak.newsfeed.data.repository.INewsRepository
 import com.ak.newsfeed.domain.model.NewsArticle
 import com.ak.newsfeed.domain.usecase.RefreshNewsUseCase
 import com.ak.newsfeed.domain.usecase.RefreshNewsUseCase.RefreshParams

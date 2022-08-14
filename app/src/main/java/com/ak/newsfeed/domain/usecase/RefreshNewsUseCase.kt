@@ -4,6 +4,7 @@ import android.util.Log
 import com.ak.newsfeed.data.NewsResource
 import com.ak.newsfeed.data.local.entity.NewsArticleEntity
 import com.ak.newsfeed.data.local.source.ILocalDataSource
+import com.ak.newsfeed.data.remote.dto.ArticleDTO
 import com.ak.newsfeed.data.remote.source.IRemoteDataSource
 import com.ak.newsfeed.domain.model.NewsArticle
 import kotlinx.coroutines.flow.Flow
@@ -28,26 +29,12 @@ class RefreshNewsUseCase @Inject constructor(
 //                        todo need to handle UI
                         !article.urlToImage.isNullOrBlank()
                     }.map { article ->
-                        NewsArticleEntity(
-                            url = article.url,
-                            author = article.author ?: "NA",
-                            content = article.content,
-                            title = article.title,
-                            description = article.description ?: "NA",
-                            publishedAt = article.publishedAt ?: "NA",
-                            imgUrl = article.urlToImage!!
-                        )
+                        mapDTOToEntity(article)
                     }
                     localDataSource.addArticles(localEntity)
                     newList = localDataSource.getArticles()
                         .map { article ->
-                            NewsArticle(
-                                title = article.title,
-                                url = article.url,
-                                author = article.author,
-                                newsImage = article.imgUrl,
-                                content = article.content
-                            )
+                            mapEntityToDomain(article)
                         }
                 }
                 emit(NewsResource.Success(newList))
@@ -57,6 +44,26 @@ class RefreshNewsUseCase @Inject constructor(
             }
         }
     }
+
+    private fun mapEntityToDomain(article: NewsArticleEntity) =
+        NewsArticle(
+            title = article.title,
+            url = article.url,
+            author = article.author,
+            newsImage = article.imgUrl,
+            content = article.content
+        )
+
+    private fun mapDTOToEntity(article: ArticleDTO) =
+        NewsArticleEntity(
+            url = article.url,
+            author = article.author ?: "NA",
+            content = article.content,
+            title = article.title,
+            description = article.description ?: "NA",
+            publishedAt = article.publishedAt ?: "NA",
+            imgUrl = article.urlToImage!!
+        )
 
     data class RefreshParams(
         val country: String = "us",
