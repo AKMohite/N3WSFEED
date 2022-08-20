@@ -3,15 +3,18 @@ package com.ak.newsfeed.domain.mapper
 import com.ak.newsfeed.data.local.entity.NewsArticleEntity
 import com.ak.newsfeed.data.remote.dto.ArticleDTO
 import com.ak.newsfeed.domain.model.NewsArticle
+import javax.inject.Inject
 
-class NewsMapper {
+class NewsMapper @Inject constructor() {
     fun mapEntityToDomain(article: NewsArticleEntity) =
         NewsArticle(
             title = article.title,
             url = article.url,
             author = article.author,
             newsImage = article.imgUrl,
-            content = article.content
+            content = article.content,
+            publishedAt = article.publishedAt,
+            source = article.source
         )
 
     fun mapDTOToEntity(article: ArticleDTO) =
@@ -20,8 +23,9 @@ class NewsMapper {
             author = article.author ?: "NA",
             content = article.content,
             title = article.title,
-            description = article.description ?: "NA",
-            publishedAt = article.publishedAt ?: "NA",
-            imgUrl = article.urlToImage!!
+            description = article.description,
+            publishedAt = article.publishedAt,
+            imgUrl = article.urlToImage!!,
+            source = article.source?.name ?: "NA"
         )
 }

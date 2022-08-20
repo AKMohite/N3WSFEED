@@ -12,9 +12,9 @@ data class TopHeadlineDTO(
 @JsonClass(generateAdapter = true)
 data class ArticleDTO(
     val author: String?,
-    val content: String?,
-    val description: String?,
-    val publishedAt: String?,
+    val content: String,
+    val description: String,
+    val publishedAt: String,
     val source: SourceDTO?,
     val title: String,
     val url: String,

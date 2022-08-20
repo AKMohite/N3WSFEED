@@ -20,7 +20,6 @@ class RefreshNewsUseCase @Inject constructor(
         params: RefreshParams
     ): Flow<NewsResource<List<NewsArticle>>> {
         return flow {
-            emit(NewsResource.Loading)
             var newList: List<NewsArticle> = arrayListOf()
             try {
                 val remoteData = remoteDataSource.getTopHeadlines(params.country, params.pageSize)

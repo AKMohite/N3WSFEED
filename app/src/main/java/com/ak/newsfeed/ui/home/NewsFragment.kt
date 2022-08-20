@@ -37,13 +37,13 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
     }
 
     private fun observeLiveData() {
-        viewModel.liveData.observe(viewLifecycleOwner) { dataWrapper ->
+        /*viewModel.liveData.observe(viewLifecycleOwner) { dataWrapper ->
             when (dataWrapper) {
                 is NewsResource.Error -> {}
                 is NewsResource.Loading -> {}
                 is NewsResource.Success -> populateData(dataWrapper.data!!)
             }
-        }
+        }*/
     }
 
     private fun populateData(data: List<NewsArticle>) {
