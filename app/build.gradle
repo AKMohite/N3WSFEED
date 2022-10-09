@@ -73,6 +73,7 @@ dependencies {
 
 //    Hilt
     implementation libs.hiltAndroid
+    implementation libs.hiltCompose
     kapt libs.hiltCompiler
 
     // ViewModel dependencies

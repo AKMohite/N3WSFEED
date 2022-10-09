@@ -23,6 +23,7 @@ material3 = "1.0.0-alpha15"
 moshi = "1.13.0"
 room = "2.4.3"
 hilt = "2.38.1"
+hilt_compose = "1.0.0"
 dataStore = "1.0.0-alpha02"
 ktlint = "10.3.0"
 detekt = "1.21.0"
@@ -47,6 +48,7 @@ compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", v
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose" }
 
 hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hiltCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt_compose" }
 hiltCompiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 
 lifecycleViewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
