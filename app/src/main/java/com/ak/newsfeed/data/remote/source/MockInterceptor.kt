@@ -11,7 +11,7 @@ class MockInterceptor : Interceptor {
 
     private val responseCode = 200
     private val topHeadlineResponse by lazy {
-        getResourceAsText("top-headlines/1.json")
+        getResourceAsText("news/top-headlines/technology/results.json")
     }
 
     override fun intercept(chain: Interceptor.Chain): Response {

@@ -23,9 +23,9 @@ class NewsMapper @Inject constructor() {
             author = article.author ?: "NA",
             content = article.content,
             title = article.title,
-            description = article.description,
+            description = article.description ?: "NA",
             publishedAt = article.publishedAt,
-            imgUrl = article.urlToImage!!,
+            imgUrl = article.urlToImage ?: "no-image",
             source = article.source?.name ?: "NA"
         )
 }
