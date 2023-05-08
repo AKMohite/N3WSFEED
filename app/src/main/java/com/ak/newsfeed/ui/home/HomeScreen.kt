@@ -2,6 +2,7 @@ package com.ak.newsfeed.ui.home
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -29,35 +30,44 @@ import com.ak.newsfeed.R
 import com.ak.newsfeed.domain.model.NewsArticle
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onNewsClick: () -> Unit,
+) {
     val viewModel: HomeViewModel = hiltViewModel()
     val viewState by viewModel.homeState.collectAsState()
     HomeContent(
-        viewState = viewState
+        viewState = viewState,
+        onNewsClick = onNewsClick
     )
 }
 
 @Composable
 private fun HomeContent(
     viewState: HomeViewState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNewsClick: () -> Unit,
 ) {
     BreakingNews(
         newsArticles = viewState.newsArticles,
-        modifier = modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize(),
+        onNewsClick = onNewsClick
     )
 }
 
 @Composable
 fun BreakingNews(
     modifier: Modifier = Modifier,
-    newsArticles: List<NewsArticle>
+    newsArticles: List<NewsArticle>,
+    onNewsClick: () -> Unit,
 ) {
     LazyColumn(
         modifier = modifier
     ) {
         items(items = newsArticles, key = NewsArticle::url) { article ->
-            NewsItem(article)
+            NewsItem(
+                article = article,
+                onNewsClick = onNewsClick
+            )
         }
     }
 }
@@ -65,12 +75,14 @@ fun BreakingNews(
 @Composable
 fun NewsItem(
     article: NewsArticle,
+    onNewsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
         modifier = modifier
             .padding(horizontal = 8.dp, vertical = 4.dp)
             .fillMaxWidth()
+            .clickable(onClick = onNewsClick)
 
     ) {
         Image(
@@ -167,7 +179,8 @@ private fun HomeContentPreview() {
                         "Times of India"
                     )
                 )
-            )
+            ),
+            onNewsClick = {}
         )
     }
 }
