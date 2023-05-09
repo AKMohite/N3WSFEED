@@ -31,7 +31,7 @@ import com.ak.newsfeed.domain.model.NewsArticle
 
 @Composable
 fun HomeScreen(
-    onNewsClick: () -> Unit,
+    onNewsClick: (NewsArticle) -> Unit
 ) {
     val viewModel: HomeViewModel = hiltViewModel()
     val viewState by viewModel.homeState.collectAsState()
@@ -45,7 +45,7 @@ fun HomeScreen(
 private fun HomeContent(
     viewState: HomeViewState,
     modifier: Modifier = Modifier,
-    onNewsClick: () -> Unit,
+    onNewsClick: (NewsArticle) -> Unit,
 ) {
     BreakingNews(
         newsArticles = viewState.newsArticles,
@@ -58,7 +58,7 @@ private fun HomeContent(
 fun BreakingNews(
     modifier: Modifier = Modifier,
     newsArticles: List<NewsArticle>,
-    onNewsClick: () -> Unit,
+    onNewsClick: (NewsArticle) -> Unit,
 ) {
     LazyColumn(
         modifier = modifier
@@ -75,14 +75,14 @@ fun BreakingNews(
 @Composable
 fun NewsItem(
     article: NewsArticle,
-    onNewsClick: () -> Unit,
+    onNewsClick: (NewsArticle) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
         modifier = modifier
             .padding(horizontal = 8.dp, vertical = 4.dp)
             .fillMaxWidth()
-            .clickable(onClick = onNewsClick)
+            .clickable(onClick = { onNewsClick(article) })
 
     ) {
         Image(

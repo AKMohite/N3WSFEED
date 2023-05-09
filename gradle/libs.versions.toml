@@ -1,11 +1,12 @@
 [versions]
-compileSdk = "32"
-targetSdk = "32"
+compileSdk = "33"
+targetSdk = "33"
 minSdk = "26"
 versionCode = "1"
 versionName = "0.0.1"
 
 appCompat = "1.4.2"
+browser = "1.5.0"
 coil = "2.1.0"
 compose = "1.2.0"
 constraintLayout = "2.1.4"
@@ -41,6 +42,8 @@ version-updates-plugin = { module = "com.github.ben-manes:gradle-versions-plugin
 appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
 coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
+
+browser = { module = "androidx.browser:browser", version.ref = "browser" }
 
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }

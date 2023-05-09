@@ -105,6 +105,8 @@ dependencies {
 //    datastore
     implementation libs.dataStore
 
+    implementation libs.browser
+
     testImplementation libs.testJunit
 
     debugImplementation libs.debug.compose.tooling
