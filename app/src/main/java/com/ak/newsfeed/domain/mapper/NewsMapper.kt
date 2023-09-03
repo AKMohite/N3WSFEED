@@ -13,7 +13,7 @@ class NewsMapper @Inject constructor() {
             author = article.author,
             newsImage = article.imgUrl,
             content = article.content,
-            publishedAt = article.getReadableDate(),
+            publishedAt = article.publishedAt,
             source = article.source
         )
 

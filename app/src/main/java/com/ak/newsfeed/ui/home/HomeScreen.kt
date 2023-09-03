@@ -2,11 +2,21 @@ package com.ak.newsfeed.ui.home
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -15,7 +25,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -83,6 +92,9 @@ fun NewsItem(
             .padding(horizontal = 8.dp, vertical = 4.dp)
             .fillMaxWidth()
             .clickable(onClick = { onNewsClick(article) })
+            .clip(RoundedCornerShape(4.dp))
+            .background(MaterialTheme.colorScheme.secondaryContainer)
+
 
     ) {
         Image(
@@ -104,12 +116,12 @@ fun NewsItem(
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .padding(4.dp)
-                .align(Alignment.Bottom),
+                .align(Alignment.Bottom)
         ) {
             Text(
                 text = article.source,
                 style = TextStyle(
-                    color = Color.LightGray,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.6f),
                     fontSize = 14.sp
                 )
             )
@@ -125,7 +137,7 @@ fun NewsItem(
             Spacer(modifier = Modifier.height(2.dp))
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = article.publishedAt,
+                text = article.getReadableDate(),
                 textAlign = TextAlign.End,
                 style = TextStyle(
                     fontWeight = FontWeight.Light
@@ -157,7 +169,7 @@ private fun HomeContentPreview() {
                         "imgUrl",
                         "content 1",
                         "content url1",
-                        "1st August",
+                        "2021-04-07T01:08:45Z",
                         "Times of India"
                     ),
                     NewsArticle(
@@ -166,7 +178,7 @@ private fun HomeContentPreview() {
                         "imgUrl",
                         "content 2",
                         "content url2",
-                        "1st August",
+                        "2021-04-06T23:34:00Z",
                         "Times of India"
                     ),
                     NewsArticle(
@@ -175,7 +187,7 @@ private fun HomeContentPreview() {
                         "imgUrl",
                         "content 3",
                         "content url3",
-                        "1st August",
+                        "2021-04-06T23:34:00Z",
                         "Times of India"
                     )
                 )
