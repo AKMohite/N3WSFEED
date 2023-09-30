@@ -1,4 +1,5 @@
 [versions]
+accompanistSystemuicontroller = "0.25.1"
 compileSdk = "33"
 targetSdk = "33"
 minSdk = "26"
@@ -32,6 +33,7 @@ versionUpdates = "0.29.0"
 
 
 [libraries]
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
 gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 hilt-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }

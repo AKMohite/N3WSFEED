@@ -65,6 +65,8 @@ dependencies {
     implementation libs.coreKtx
     implementation libs.constraintLayout
 
+    implementation libs.accompanist.systemuicontroller
+
 //    compose
     implementation libs.compose.ui
     implementation libs.compose.material3
