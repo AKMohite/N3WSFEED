@@ -12,12 +12,18 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.ak.newsfeed.domain.model.NewsArticle
 import com.ak.newsfeed.ui.home.HomeScreen
+import com.ak.newsfeed.ui.navigation.NavGraph
+import com.ak.newsfeed.ui.navigation.ScreenRoute
 import com.ak.newsfeed.ui.theme.NewsFeedTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,10 +48,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val primaryInt = MaterialTheme.colorScheme.primary.toArgb()
-                    HomeScreen(
-                        onNewsClick = { article ->
-                            openWebCustomTab(article, primaryInt)
+                    NavGraph(
+                        openWebCustomTab = { article, color ->
+                            openWebCustomTab(article, color)
                         }
                     )
                 }
