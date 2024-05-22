@@ -20,8 +20,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -33,17 +31,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.ak.newsfeed.R
 import com.ak.newsfeed.domain.model.NewsArticle
 
 @Composable
 fun HomeScreen(
-    onNewsClick: (NewsArticle) -> Unit
+    onNewsClick: (NewsArticle) -> Unit,
+    viewState: HomeViewState
 ) {
-    val viewModel: HomeViewModel = hiltViewModel()
-    val viewState by viewModel.homeState.collectAsState()
     HomeContent(
         viewState = viewState,
         onNewsClick = onNewsClick
