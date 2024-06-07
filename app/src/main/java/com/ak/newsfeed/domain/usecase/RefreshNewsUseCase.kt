@@ -22,15 +22,15 @@ class RefreshNewsUseCase @Inject constructor(
         return flow {
             var newList: List<NewsArticle> = arrayListOf()
             try {
+                emit(NewsResource.Success(getLocalArticles()))
                 val remoteData = remoteDataSource.getTopHeadlines(params.country, params.pageSize)
                 if (!remoteData.articles.isNullOrEmpty()) {
                     val localEntity = remoteData.articles
                         .map(newsMapper::mapDTOToEntity)
-
+                    localDataSource.deleteArticles()
                     localDataSource.addArticles(localEntity)
 
-                    newList = localDataSource.getArticles()
-                        .map(newsMapper::mapEntityToDomain)
+                    newList = getLocalArticles()
                 }
                 emit(NewsResource.Success(newList))
             } catch (e: Exception) {
@@ -39,6 +39,9 @@ class RefreshNewsUseCase @Inject constructor(
             }
         }
     }
+
+    private suspend fun getLocalArticles() = localDataSource.getArticles()
+        .map(newsMapper::mapEntityToDomain)
 
     data class RefreshParams(
         val country: String = "us",
