@@ -6,8 +6,10 @@ import com.ak.newsfeed.data.local.source.ILocalDataSource
 import com.ak.newsfeed.data.remote.source.IRemoteDataSource
 import com.ak.newsfeed.domain.mapper.NewsMapper
 import com.ak.newsfeed.domain.model.NewsArticle
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class RefreshNewsUseCase @Inject constructor(
@@ -37,7 +39,7 @@ class RefreshNewsUseCase @Inject constructor(
                 emit(NewsResource.Error(e))
                 Log.d("NewsRepository", "getTopHeadlines: $e")
             }
-        }
+        }.flowOn(Dispatchers.IO)
     }
 
     private suspend fun getLocalArticles() = localDataSource.getArticles()

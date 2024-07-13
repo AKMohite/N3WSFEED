@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+    namespace 'com.ak.newsfeed'
     compileSdk Integer.parseInt(libs.versions.compileSdk.get())
 
     defaultConfig {
