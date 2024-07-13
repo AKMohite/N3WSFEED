@@ -37,12 +37,12 @@ android {
     buildFeatures.viewBinding = true
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
 
@@ -52,7 +52,7 @@ android {
         }
     }
     composeOptions {
-        kotlinCompilerExtensionVersion libs.versions.compose.get()
+        kotlinCompilerExtensionVersion libs.versions.composeCompiler.get()
     }
     packagingOptions {
         resources {
@@ -69,6 +69,7 @@ dependencies {
     implementation libs.accompanist.systemuicontroller
 
 //    compose
+    implementation(platform(libs.compose.bom))
     implementation libs.compose.ui
     implementation libs.compose.material3
     implementation libs.compose.tooling.preview

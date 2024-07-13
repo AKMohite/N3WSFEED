@@ -1,31 +1,32 @@
 [versions]
 accompanistSystemuicontroller = "0.25.1"
-compileSdk = "33"
-targetSdk = "33"
+compileSdk = "34"
+targetSdk = "34"
 minSdk = "26"
 versionCode = "1"
 versionName = "0.0.1"
 
-appCompat = "1.4.2"
-browser = "1.5.0"
+appCompat = "1.7.0"
+browser = "1.8.0"
 coil = "2.1.0"
-compose = "1.2.0"
+compose = "1.9.0"
+composeBom = "2024.06.00"
+composeCompiler = "1.5.14"
 constraintLayout = "2.1.4"
-coreKtx = "1.8.0"
-espressoCore = "3.4.0"
-extJunit = "1.1.3"
-kotlin = "1.7.0"
+coreKtx = "1.13.1"
+espressoCore = "3.6.1"
+extJunit = "1.2.1"
+kotlin = "1.9.24"
 gradle = "8.5.0"
 junit = "4.13.2"
-lifecycle = "2.5.1"
-navigation = "2.5.1"
-retrofit = "2.9.0"
-loggingInterceptor = "4.10.0"
-material3 = "1.0.0-alpha15"
-moshi = "1.13.0"
-room = "2.4.3"
-hilt = "2.38.1"
-hilt_compose = "1.0.0"
+lifecycle = "2.8.3"
+navigation = "2.7.7"
+retrofit = "2.11.0"
+loggingInterceptor = "4.12.0"
+moshi = "1.15.0"
+room = "2.6.1"
+hilt = "2.46"
+hilt_compose = "1.2.0"
 dataStore = "1.0.0-alpha02"
 ktlint = "10.3.0"
 detekt = "1.21.0"
@@ -47,9 +48,10 @@ constraintLayout = { module = "androidx.constraintlayout:constraintlayout", vers
 
 browser = { module = "androidx.browser:browser", version.ref = "browser" }
 
-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
-compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose" }
 
 hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
@@ -81,11 +83,11 @@ dataStore = { module = "androidx.datastore:datastore-preferences", version.ref =
 testJunit = { module = "junit:junit", version.ref = "junit" }
 testExtJunit = { module = "androidx.test.ext:junit", version.ref = "extJunit" }
 testEspressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
-testComposeUi = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+testComposeUi = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
 
-debug-compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-debug-compose-ui = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+debug-compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+debug-compose-ui = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
 [bundles]
 #retrofit = ["retrofit-base", "retrofit-rx", "retrofit-moshi"]
