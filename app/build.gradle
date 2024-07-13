@@ -5,6 +5,10 @@ plugins {
     id "dagger.hilt.android.plugin"
 }
 
+def localFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localFile))
+
 android {
     namespace 'com.ak.newsfeed'
     compileSdk Integer.parseInt(libs.versions.compileSdk.get())
@@ -15,6 +19,8 @@ android {
         targetSdk Integer.parseInt(libs.versions.targetSdk.get())
         versionCode Integer.parseInt(libs.versions.versionCode.get())
         versionName libs.versions.versionName.get()
+
+        buildConfigField "String", "NEWS_API_KEY", "\"" + localProperties['apikey'] + "\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -118,5 +124,5 @@ dependencies {
 
     androidTestImplementation libs.testExtJunit
     androidTestImplementation libs.testEspressoCore
-    androidTestImplementation libs.testComposeUi
+//    androidTestImplementation libs.testComposeUi
 }

@@ -83,7 +83,7 @@ dataStore = { module = "androidx.datastore:datastore-preferences", version.ref =
 testJunit = { module = "junit:junit", version.ref = "junit" }
 testExtJunit = { module = "androidx.test.ext:junit", version.ref = "extJunit" }
 testEspressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
-testComposeUi = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+#testComposeUi = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
 
 debug-compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }

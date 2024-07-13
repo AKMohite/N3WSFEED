@@ -18,7 +18,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 private const val BASE_URL = "https://newsapi.org/v2/"
-private const val API_KEY = "" // todo add apikey
+private const val API_KEY = BuildConfig.NEWS_API_KEY
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -50,7 +50,7 @@ object DataModule {
                 chain.proceed(request.build())
             }
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(mockInterceptor)
+//            .addInterceptor(mockInterceptor)
             .build()
     }
 
