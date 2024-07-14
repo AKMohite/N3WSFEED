@@ -48,8 +48,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ) {
                     NavGraph(
-                        openWebCustomTab = { article, color ->
-                            openWebCustomTab(article, color)
+                        openWebCustomTab = { url, color ->
+                            openWebCustomTab(url, color)
                         }
                     )
                 }
@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun openWebCustomTab(article: NewsArticle, @ColorInt toResInt: Int) {
+    private fun openWebCustomTab(url: String, @ColorInt toResInt: Int) {
         val intent = CustomTabsIntent.Builder()
             .setDefaultColorSchemeParams(
                 CustomTabColorSchemeParams.Builder()
@@ -77,6 +77,6 @@ class MainActivity : ComponentActivity() {
         intent.intent.putExtra(
             Intent.EXTRA_REFERRER,
             Uri.parse("android-app://$packageName"))
-        intent.launchUrl(this@MainActivity, Uri.parse(article.url))
+        intent.launchUrl(this@MainActivity, Uri.parse(url))
     }
 }

@@ -16,4 +16,7 @@ interface NewsDAO {
 
     @Query("DELETE FROM article")
     suspend fun deleteArticles()
+
+    @Query("SELECT * FROM article WHERE url = :id")
+    suspend fun getArticleDetail(id: String): NewsArticleEntity?
 }

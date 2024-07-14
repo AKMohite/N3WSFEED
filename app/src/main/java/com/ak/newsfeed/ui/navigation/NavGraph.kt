@@ -12,10 +12,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.ak.newsfeed.domain.model.NewsArticle
+import com.ak.newsfeed.ui.detail.DetailsViewModel
+import com.ak.newsfeed.ui.detail.NewsDetailsScreen
 import com.ak.newsfeed.ui.home.HomeScreen
 import com.ak.newsfeed.ui.home.HomeViewModel
 
@@ -27,7 +31,7 @@ data class BottomNavigationItem(
 
 @Composable
 internal fun NavGraph(
-    openWebCustomTab: (article: NewsArticle, color: Int) -> Unit
+    openWebCustomTab: (url: String, color: Int) -> Unit
 ) {
 
     val navController = rememberNavController()
@@ -41,13 +45,27 @@ internal fun NavGraph(
 
     NavHost(navController = navController, startDestination = ScreenRoute.Home.route) {
         composable(route = ScreenRoute.Home.route) {
-            val primaryInt = MaterialTheme.colorScheme.primary.toArgb()
             val viewModel: HomeViewModel = hiltViewModel()
             val viewState by viewModel.homeState.collectAsState()
             HomeScreen(
                 viewState = viewState,
                 onNewsClick = { article ->
-                    openWebCustomTab(article, primaryInt)
+                    navController.navigate("${ScreenRoute.Details.route}?url=${article.url}")
+                }
+            )
+        }
+
+        composable(
+            route = "${ScreenRoute.Details.route}?url={articleUrl}",
+            arguments = listOf(navArgument("articleUrl") { type = NavType.StringType })
+        ) {
+            val primaryInt = MaterialTheme.colorScheme.primary.toArgb()
+            val viewModel: DetailsViewModel = hiltViewModel()
+            val viewState by viewModel.detailState.collectAsState()
+            NewsDetailsScreen(
+                state = viewState,
+                onUrlClick = {
+                    openWebCustomTab(it, primaryInt)
                 }
             )
         }

@@ -6,4 +6,5 @@ interface ILocalDataSource {
     suspend fun addArticles(article: List<NewsArticleEntity>)
     suspend fun getArticles(): List<NewsArticleEntity>
     suspend fun deleteArticles()
+    suspend fun getArticleDetail(id: String): NewsArticleEntity?
 }

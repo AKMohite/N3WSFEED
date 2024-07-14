@@ -12,7 +12,7 @@ class NewsMapper @Inject constructor() {
             url = article.url,
             author = article.author,
             newsImage = article.imgUrl,
-            content = article.content,
+            content = article.content ?: "NA",
             publishedAt = article.publishedAt,
             source = article.source
         )
@@ -21,7 +21,7 @@ class NewsMapper @Inject constructor() {
         NewsArticleEntity(
             url = article.url,
             author = article.author ?: "NA",
-            content = article.content,
+            content = article.content ?: "NA",
             title = article.title,
             description = article.description ?: "NA",
             publishedAt = article.publishedAt,

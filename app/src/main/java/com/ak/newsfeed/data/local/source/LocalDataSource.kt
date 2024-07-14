@@ -2,6 +2,8 @@ package com.ak.newsfeed.data.local.source
 
 import com.ak.newsfeed.data.local.NewsDatabase
 import com.ak.newsfeed.data.local.entity.NewsArticleEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class LocalDataSource @Inject constructor(
@@ -18,5 +20,9 @@ class LocalDataSource @Inject constructor(
 
     override suspend fun deleteArticles() {
         newsDB.newsDAO().deleteArticles()
+    }
+
+    override suspend fun getArticleDetail(id: String): NewsArticleEntity? = withContext(Dispatchers.IO) {
+        newsDB.newsDAO().getArticleDetail(id)
     }
 }
